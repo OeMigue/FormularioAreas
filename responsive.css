@@ -1,0 +1,214 @@
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+        }
+
+        .div_mayor {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: clamp(80px, 15vw, 110px);
+            height: clamp(50px, 10vw, 70px);
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 1px 4px 8px 0 rgb(0, 0, 0);
+            transition: 0.1s ease;
+        }
+
+        img:hover {
+            border: 5px solid #586AE8;
+            box-shadow: 2px 4px 8px 0 rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        .formulario {
+            width: 100%;
+            max-width: 600px;
+            padding: clamp(2rem, 5vw, 4rem);
+            border: 1px solid black;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 1px 4px 8px 0 rgb(0, 0, 0);
+        }
+
+        h1 {
+            color: #586AE8;
+            margin: 0 0 2rem 0;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+        }
+
+        .div_input {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .div_input input {
+            width: 100%;
+            height: clamp(40px, 6vh, 50px);
+            border: 1px solid black;
+            border-top-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            padding: 0 10px;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: border-color 0.3s ease;
+        }
+
+        .div_input input:focus {
+            outline: none;
+            border-color: #586AE8;
+        }
+
+        label {
+            text-align: start;
+            font-weight: initial;
+            color: #5a5a5a;
+        }
+
+        .div_input label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: clamp(12px, 2vw, 14px);
+            pointer-events: none;
+            transition: 0.5s ease;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .div_input input:focus ~ label,
+        .div_input input:valid ~ label {
+            top: 0;
+            transform: translateY(-50%);
+            font-size: clamp(10px, 1.8vw, 12px);
+            color: #586AE8;
+            font-weight: bold;
+        }
+
+        /* Tablets horizontales y desktop pequeño */
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .div_mayor {
+                padding: 3rem;
+            }
+
+            .formulario {
+                max-width: 700px;
+            }
+        }
+
+        /* Tablets verticales */
+        @media screen and (max-width: 768px) {
+            .div_mayor {
+                padding: 1.5rem;
+            }
+
+            .formulario {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                margin-bottom: 1.5rem;
+            }
+
+            .div_input {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Móviles */
+        @media screen and (max-width: 480px) {
+            .div_mayor {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            .formulario {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                margin-bottom: 1.25rem;
+            }
+
+            .div_input {
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        /* Orientación horizontal en móviles */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+            }
+
+            .div_mayor {
+                padding: 1rem;
+                gap: 1rem;
+                min-height: 100vh;
+            }
+
+            .formulario {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+            }
+
+            .div_input {
+                margin-bottom: 1rem;
+            }
+
+            .div_input input {
+                height: 40px;
+            }
+
+            img {
+                width: 70px;
+                height: 45px;
+            }
+        }
+
+        /* Pantallas muy grandes */
+        @media screen and (min-width: 1400px) {
+            .div_mayor {
+                max-width: 1400px;
+            }
+
+            .formulario {
+                max-width: 700px;
+            }
+        }
+
+        /* Ajuste para pantallas ultrawide */
+        @media screen and (min-width: 1920px) {
+            .formulario {
+                max-width: 800px;
+            }
+        }
