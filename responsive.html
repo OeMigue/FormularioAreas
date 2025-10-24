@@ -4,48 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="responsive.css">
-    <title>Formulario R</title>
+    <link rel="stylesheet" href="responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Formulario Jefes</title>
 </head>
 
 <body>
     <div class="div_mayor">
-        
+
         <form class="formulario">
-            
+
             <h1>Formulario (área)</h1>
 
             <div class="div_input">
                 <input id="ingresos_mensuales" type="text" required>
-                <label for="ingresos_mensuales">Ingresos Mensuales</label>
+                <label for="ingresos_mensuales">Conceptos</label>
             </div>
 
             <div class="div_input">
                 <input type="text" id="baja_ingresos" required>
-                <label for="baja_ingresos">Baja de ingresos Mensuales</label>
+                <label for="baja_ingresos">Especificaciones</label>
             </div>
 
             <div class="div_input">
                 <input type="text" id="Valor_inpuestos" required>
-                <label for="Valor_inpuestos">Valor de impuestos</label>
+                <label for="Valor_inpuestos">Ciudad</label>
+                <!-- <select name="" id="">
+                    <option value="">Seleccione una opción...</option>
+                    <option value="">Medellin</option>
+                    <option value="">Bogotá</option>
+                    <option value="">NY</option>
+                    <option value="">Los Angeles</option>
+                </select> -->
             </div>
 
             <div class="div_input">
                 <input type="text" id="mes" required>
-                <label for="mes">Mes</label>
+                <label for="mes">Valor</label>
             </div>
 
+            <div class="div_input">
+                <input type="text" id="mes" required min="1">
+                <label for="mes">Mes</label>
+                
+            </div>
             <div class="div_input">
                 <input type="text" id="anio" required>
                 <label for="anio">Año</label>
             </div>
             <div class="img">
-            <a href="https://YouTube.com" target="_blank">
-                <img src="https://ii.ct-stc.com/1/logos/empresas/2023/08/10/coleccion-talento-433536DF57C45CEC211055thumbnail.jpeg" alt="Logo">
-            </a>
-        </div>
+                <a id="elBoton">
+                    <img src="https://ii.ct-stc.com/1/logos/empresas/2023/08/10/coleccion-talento-433536DF57C45CEC211055thumbnail.jpeg"
+                        alt="Logo">
+                </a>
+            </div>
         </form>
     </div>
+    <Script src="/main.js"></Script>
 </body>
 
 </html>
