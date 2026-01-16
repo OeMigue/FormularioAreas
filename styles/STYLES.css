@@ -1,0 +1,196 @@
+COLORES {
+    color: #586AE8;
+    color: #382C54;
+    color: #FF8901;
+    color: #6DC7CC;
+    color: #FD636B;
+    color: #C0EE5A;
+    color: #C6C6C6;
+    color: #ffffff;
+}
+
+/* BODY LOGIN */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114{
+    padding: 0vh 0vh 0vh 0vh !important;
+}
+
+/* BODY FORMULARIO */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114{
+    padding: 0vh 3vh 5vh 2vh;
+}
+
+/* MENÚ CONFIG */
+[data-testid="stToolbar"]{
+    display: none;
+}
+
+/* MENÚ CONFIG PAG. */
+[data-testid="stHeader"]{
+    display: none;
+}
+
+/* SIDEBAR */
+#root > div:nth-child(1) > div.withScreencast > div > div > section{
+    background-color: #586AE8;
+    width: 39vh !important;
+}
+
+/* CONTENEDOR IMG */
+#root > div:nth-child(1) > div.withScreencast > div > div > section > div.st-emotion-cache-155jwzh.e6f82ta2 > div.st-emotion-cache-1r1cntt.e6f82ta1 {
+    padding: 0%;
+    margin: 0%;
+}
+
+/* IMAGEN */
+[data-testid="stSidebar"] img {
+    height:100vh;
+    padding: 0vh 0vh 0vh 2vh;
+    margin: 0vh 0vh 0vh 0vh;
+}
+
+/* IMG BIENVENIDO */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 > div > div.st-emotion-cache-18kf3ut.e196pkbe3 > div > div.st-emotion-cache-18kf3ut.e196pkbe3 > div > div > div > div:nth-child(1) > div > div > div > div.stColumn.st-emotion-cache-f3jy6b.e196pkbe1 > div > div > div > div > div.stImage.st-emotion-cache-qyyadu.e1mq0gaz0 > div > img{
+    width: 50px;
+}
+
+/* BTN ZOOM IMGS */
+[data-testid="stElementToolbar"], [data-testid="stSidebarHeader"]{
+    display: none;
+}
+
+/* COLUMNA IMPUTS */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 > div > div.st-emotion-cache-18kf3ut.e196pkbe3 > div > div.st-emotion-cache-18kf3ut.e196pkbe3{
+    box-shadow: 15px 30px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px 25px 25px 15px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+/* DIV TITULO LOGIN */
+[data-testid="stHeadingWithActionElements"]{
+    background-color: #586AE8;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 0vh 0vh 0vh 0vh;
+    align-items: center;
+}
+
+/* SVG DE ENLACE EN TITULOS */
+[data-testid="stHeaderActionElements"]{
+    display: none;
+}
+
+/* SOMBRA ALERTAS */
+[data-baseweb="notification"]{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/*CAPTION DEL VALOR*/
+[data-testid="stCaptionContainer"]{
+    position: absolute;
+    top: 38px;
+}
+
+/* CONTENEDOR INPUTS LOGIN */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-1w723zb.e4man114 > div > div.st-emotion-cache-18kf3ut.e196pkbe3 > div > div.st-emotion-cache-18kf3ut.e196pkbe3 > div > div > div > div.stColumn.st-emotion-cache-1jnfx01.e196pkbe1 > div{
+    align-items: center;
+}
+
+/* FOOTER LOGIN */
+[data-testid="stAppViewContainer"] {
+    position: relative;
+}
+
+/* BORDES INPUTS */
+.st-ci {
+    border-bottom-color: #586AE8;
+}
+.st-ch {
+    border-top-color: #586AE8;
+}
+.st-cg {
+    border-right-color: #586AE8;
+}
+.st-cf, .st-d3 {
+    border-left-color: #586AE8;
+}
+.st-emotion-cache-1py5frv.focused{
+    border-color: #586AE8;
+}
+
+[class="st-at st-au st-av st-aw st-ae st-ag st-ah st-af st-el st-bw st-ai st-aj st-ak st-al st-am st-an st-ao st-ap st-eq st-ar st-as st-bj st-fd st-fe st-ff st-fg st-b7 st-er st-es"]{
+    border-color: #586AE8;
+}
+
+/* BTNS ANTES HOVER */
+[data-testid="stBaseButton-secondary"]{
+    background-color: white;
+    color: #586AE8;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: none;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+    margin: 0vh 0vh 0vh 0vh;
+}
+
+/* BTNS DESPUES HOVER */
+.stButton button:hover {
+    background-color: #586AE8;
+    color: white;
+    box-shadow: 1px 8px 20px rgba(88, 106, 232, 1);
+    transform: translateY(-5px);
+}
+
+/* BTN CERRAR SESIÓN ANTES HOVER */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(2) > div > div > div > div.stColumn.st-emotion-cache-kt9vas.e196pkbe1 > div > div > div > button{
+    position: absolute;
+    z-index: 2;
+    top: 3px;
+}
+
+/* BOTON CERRAR SESION DESPUES HOVER */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(2) > div > div > div > div.stColumn.st-emotion-cache-kt9vas.e196pkbe1 > div > div > div > button:hover{
+    color: white;
+    background-color: #FD636B;
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* BOTON TOMAR CONCEPTOS*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(5) > div > div > div > div.stColumn.st-emotion-cache-kt9vas.e196pkbe1 > div > div > div > button{
+    position: relative;
+    top: 28px;
+    width: 100%;
+}
+
+/* VENTANA EMERGENTE DE BIENVENIDA */
+#root > div:nth-child(2) > div > div > div:nth-child(2) > div > div > div{
+    width: 400px;
+    transform: translate(0px, 50px);
+}
+
+/*SEPARACION VERTICAL CONCEPTOS*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(6) > div > div:nth-child(1) > div{
+    /* padding: 49px 0px 0px 0px; */
+    gap: 30px;
+}
+
+/*SEPARACION VERTICAL GUIAS*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(6) > div > div:nth-child(7) > div{
+    /* padding: 49px 0px 0px 0px; */
+    gap: 30px;
+}
+
+/*BTNS DUPLICAR*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(6) > div > div:nth-child(8) > div{
+    padding: 2.8rem 0rem 0rem 0rem;
+    gap: 1rem;
+}
+
+/*BTNS ELIMINAR*/
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114 > div > div:nth-child(6) > div > div:nth-child(9) > div{
+    padding: 2.8rem 0rem 0rem 0rem;
+    gap: 1rem;
+}
