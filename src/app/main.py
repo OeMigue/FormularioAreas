@@ -345,7 +345,7 @@ def mostrar_formulario():
             options=lista_concepto_nuevo,
             placeholder="💡Por favor seleccione los conceptos...",
             key="select_concepto",
-            default=st.session_state.conceptos_buffer
+            # default=st.session_state.conceptos_buffer
         )
         st.session_state.conceptos_buffer = conceptos_seleccinados
 
@@ -628,6 +628,8 @@ def main():
         st.session_state.saltarse_sync = False
     if "select_concepto" not in st.session_state:
         st.session_state.select_concepto = []
+    if "filas" not in st.session_state:
+        st.session_state.filas = []
 
     st.sidebar.image(RUTA_IMAGE)
 
