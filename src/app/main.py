@@ -1,4 +1,5 @@
 import gc
+import sys
 import time
 import uuid
 import locale
@@ -17,6 +18,7 @@ RUTA_ICON_MARCAS = r"O:\Gerencia Contraloria\Analitica Contraloria\Automatiacion
 RUTA_BIENVENIDA_GCO = r"O:\Gerencia Contraloria\Analitica Contraloria\Automatiaciones Ambiente Pruebas\Carpeta Miguel Cardona\FormularioAreas\images\bienvenidaGCO.png"
 
 locale.setlocale(locale.LC_ALL, '')  # Usa configuración local del sistema
+sys.stdout.reconfigure(encoding = "utf-8")
 
 CREDENCIALES = {
     "Miguel Cardona": ["mcardona", "777"],
@@ -581,9 +583,9 @@ def mostrar_formulario():
                         barra_carga = st.progress(0)
                         progreso = 0
                         while hilo_guardar.is_alive():
-                            progreso = min(progreso + 10, 95)
+                            progreso = min(progreso + 5, 85)
                             barra_carga.progress(progreso)
-                            time.sleep(0.4)
+                            time.sleep(0.8)
 
                         barra_carga.progress(100)
                         time.sleep(0.2)
@@ -607,7 +609,7 @@ def mostrar_formulario():
                                 del st.session_state[k]
                         
                         st.session_state.select_concepto = []
-                        time.sleep(0.5)
+                        time.sleep(0.4)
                         st.rerun()
             ventana_enviar_todo()
 
