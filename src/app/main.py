@@ -94,28 +94,39 @@ def parametros(area):
     lista_ciudades = df.iloc[:,16].dropna().drop_duplicates().tolist()
 
     if area == "Analítica de Contraloría" or area == "Admin":
-        lista_concepto_nuevo = df.iloc[:,18].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,18].dropna().drop_duplicates(), df.iloc[:,20].dropna()))
+        col_concepto_nuevo = 22
+        col_unidad = 20
 
     elif area == "Control de Operaciones":
-        lista_concepto_nuevo = df.iloc[:,34].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,34].dropna().drop_duplicates(), df.iloc[:,36].dropna()))
+        col_concepto_nuevo = 38
+        col_unidad = 36
 
     elif area == "Administrativa":
-        lista_concepto_nuevo = df.iloc[:,6].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,6].dropna().drop_duplicates(), df.iloc[:,8].dropna()))
+        col_concepto_nuevo = 10
+        col_unidad = 8
 
     elif area == "Riesgos y Cumplimiento":
-        lista_concepto_nuevo = df.iloc[:,50].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,50].dropna().drop_duplicates(), df.iloc[:,52].dropna()))
+        col_concepto_nuevo = 50
+        col_unidad = 52
 
     elif area == "Impuestos":
-        lista_concepto_nuevo = df.iloc[:,42].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,42].dropna().drop_duplicates(), df.iloc[:,44].dropna()))
+        col_concepto_nuevo = 46
+        col_unidad = 44
 
     elif area == "Contabilidad":
-        lista_concepto_nuevo = df.iloc[:,26].dropna().drop_duplicates().tolist()
-        diccionario_unidades = dict(zip(df.iloc[:,26].dropna().drop_duplicates(), df.iloc[:,28].dropna()))
+        col_concepto_nuevo = 30
+        col_unidad = 28
+
+    # ✅ Filtrar SOLO las filas donde el concepto nuevo NO sea NaN
+    # Así la Unidad y el Concepto Nuevo siempre quedan alineados fila a fila
+    df_filtrado = df[df.iloc[:, col_concepto_nuevo].notna()].copy()
+
+    lista_concepto_nuevo = df_filtrado.iloc[:, col_concepto_nuevo].drop_duplicates().tolist()
+    diccionario_unidades = dict(zip(
+        df_filtrado.iloc[:, col_concepto_nuevo],
+        df_filtrado.iloc[:, col_unidad]
+    ))
+
 
     return lista_especificaciones, lista_ciudades, lista_concepto_nuevo, diccionario_unidades
 
@@ -238,6 +249,7 @@ def mostrar_login():
         layout="centered",
         initial_sidebar_state="expanded",
     )
+    
     container = st.container()
     with container:
         st.markdown(
@@ -249,38 +261,70 @@ def mostrar_login():
             unsafe_allow_html=True,
         )
         st.divider()
-        contenedor_inputs = st.container()
-        with contenedor_inputs:
+        
+        # ✅ CAMBIO 1: Usar st.form() para agrupar los inputs
+        # Esto previene que la página se recargue al cambiar de input
+        with st.form("login_form"):
             col01, col02 = st.columns([5, 5])
+            
             with col01:
                 col1, col2, col3 = st.columns([12,1,1])
                 with col1:
                     st.image(RUTA_BIENVENIDA_GCO, width='stretch')
+            
             with col02:
-                
-                usuario = st.text_input("Usuario:", placeholder="Ej: usuario", icon = ":material/account_circle:")
+                usuario = st.text_input(
+                    "Usuario:", 
+                    placeholder="Ej: usuario", 
+                    icon=":material/account_circle:"
+                )
                 contraseña = st.text_input(
-                    "Pin:", placeholder="Ej: 1234", type="password", icon = ":material/passkey:")
-                enviar = st.button("Iniciar Sesión", icon =":material/login:")
-        
-            if enviar:
-                if not usuario or not contraseña:
-                    st.divider()
-                    st.warning("Campos obligatorios")
-                else:
-                    for nombre, datos_bd in CREDENCIALES.items():
-                        if usuario == datos_bd[0] and contraseña == datos_bd[1]:
-                            st.session_state.autenticado = True
-                            st.session_state.usuario_actual = usuario
-                            st.session_state.nombre_usuario = nombre
-                            @st.dialog('Para nosotros es un honor tenerte aquí')
-                            def ventana_login():
-                                st.success(f"Bienvenido(a) {nombre}. Inicio de sesión completo", icon = ":material/how_to_reg:")
-                                time.sleep(0.5)
-                                st.rerun()
-                            ventana_login()
-                    st.divider()
-                    st.error("Usuario o contraseña incorrectos")
+                    "Pin:", 
+                    placeholder="Ej: 1234", 
+                    type="password", 
+                    icon=":material/passkey:"
+                )
+            
+                # ✅ CAMBIO 2: st.form_submit_button en lugar de st.button
+                # Esto asegura que solo se ejecute cuando se envía el formulario
+                enviar = st.form_submit_button(
+                    "Iniciar Sesión", 
+                    icon=":material/login:"
+                )
+
+            alertas = st.container()
+            with alertas:
+                # ✅ CAMBIO 3: Validación solo cuando se presiona el botón
+                if enviar:
+                    if not usuario or not contraseña:
+                        st.warning("Campos obligatorios")
+                    else:
+                        # ✅ CAMBIO 4: Usar una bandera para controlar el login
+                        # En lugar de mostrar el dialog dentro del loop
+                        login_ok = False
+                        nombre_usuario = None
+                        
+                        for nombre, datos_bd in CREDENCIALES.items():
+                            if usuario == datos_bd[0] and contraseña == datos_bd[1]:
+                                st.session_state.autenticado = True
+                                st.session_state.usuario_actual = usuario
+                                st.session_state.nombre_usuario = nombre
+                                login_ok = True
+                                nombre_usuario = nombre
+                                # ✅ CAMBIO 5: Salir del loop cuando encuentra credenciales correctas
+                                break
+                        
+                        # ✅ CAMBIO 6: Mostrar el dialog FUERA del loop
+                        # Esto evita que se recree en cada iteración
+                        if login_ok:
+                            st.success(
+                                f"Bienvenido(a) {nombre_usuario}. Inicio de sesión completo", 
+                                icon=":material/how_to_reg:"
+                            )
+                            time.sleep(1)
+                            st.rerun()
+                        else:
+                            st.error("Usuario o contraseña incorrectos")
 
 def mostrar_formulario():
     # Limpiar campos si se indica en session_state

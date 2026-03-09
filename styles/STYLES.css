@@ -14,6 +14,11 @@ COLORES {
     padding: 0vh 0vh 0vh 0vh !important;
 }
 
+[data-testid="stForm"]{
+    padding: 0;
+    border: none;
+}
+
 /* BODY FORMULARIO */
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-zy6yx3.e4man114{
     padding: 0vh 3vh 1vh 2vh;
@@ -103,6 +108,23 @@ COLORES {
 }
 
 /* BORDES INPUTS */
+
+[data-testid="stTextInputRootElement"]:focus{
+    border-color: #586AE8;
+
+}
+[data-testid="stTextInputRootElement"]{
+    border-color: #586AE8;
+}
+
+[data-testid="stMultiSelect"]:focus{
+    border-color: #586AE8;
+}
+
+[data-testid="stMultiSelect"]{
+    border-color: #586AE8;
+}
+
 .st-ci {
     border-bottom-color: #586AE8;
 }
@@ -123,8 +145,13 @@ COLORES {
     border-color: #586AE8;
 }
 
+/*TEXTO INFORMATIVO INPUTS*/
+[data-testid="InputInstructions"]{
+    display: none;
+}
+
 /* BTNS ANTES HOVER */
-[data-testid="stBaseButton-secondary"]{
+[data-testid="stBaseButton-secondary"], [data-testid="stBaseButton-secondaryFormSubmit"]{
     background-color: white;
     color: #586AE8;
     border-radius: 10px;
@@ -136,7 +163,7 @@ COLORES {
 }
 
 /* BTNS DESPUES HOVER */
-.stButton button:hover {
+.stButton button:hover, [data-testid="stBaseButton-secondaryFormSubmit"]:hover {
     background-color: #586AE8;
     color: white;
     box-shadow: 1px 8px 20px rgba(88, 106, 232, 1);
